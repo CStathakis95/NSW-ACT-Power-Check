@@ -1,4 +1,4 @@
-function checkOutages() {
+async function checkOutages() {
 
     const address = document.getElementById("address").value;
 
