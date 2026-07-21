@@ -14,28 +14,15 @@ function checkOutages() {
         <h2>Checking:</h2>
         <p>${address}</p>
 
-        <div class="company">
-            <h3>Ausgrid</h3>
-            <p class="ok">
-            🟢 Waiting for live connection
-            </p>
-        </div>
+ <div class="company">
 
+    <h3>Electricity Distributor</h3>
 
-        <div class="company">
-            <h3>Endeavour Energy</h3>
-            <p class="ok">
-            🟢 Waiting for live connection
-            </p>
-        </div>
+    <p class="ok">
+    ⚡ ${distributor}
+    </p>
 
-
-        <div class="company">
-            <h3>Essential Energy</h3>
-            <p class="ok">
-            🟢 Waiting for live connection
-            </p>
-        </div>
+</div>
 
 
         <p>
