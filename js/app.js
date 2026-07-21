@@ -9,7 +9,11 @@ async function checkOutages() {
 
     const distributor = findDistributor(address);
 
+    console.log("Distributor:", distributor);
+
     const outage = await checkOutage(distributor, address);
+
+    console.log("Outage result:", outage);
 
     document.getElementById("results").innerHTML = `
 
