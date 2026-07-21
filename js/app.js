@@ -8,7 +8,9 @@ function checkOutages() {
     }
 
     const distributor = findDistributor(address);
-    
+
+    const outage = await checkOutage(distributor, address);
+
     document.getElementById("results").innerHTML = `
 
         <h2>Checking:</h2>
