@@ -7,7 +7,8 @@ function checkOutages() {
         return;
     }
 
-
+    const distributor = findDistributor(address);
+    
     document.getElementById("results").innerHTML = `
 
         <h2>Checking:</h2>
