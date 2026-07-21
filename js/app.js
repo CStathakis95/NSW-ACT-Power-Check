@@ -7,46 +7,41 @@ async function checkOutages() {
         return;
     }
 
-async function checkOutages() {
-
-    const address = document.getElementById("address").value;
-
-    if (address.trim() === "") {
-        alert("Please enter an address.");
-        return;
-    }
-
     const distributor = findDistributor(address);
 
     const outage = await checkOutage(distributor, address);
 
+    document.getElementById("results").innerHTML = `
+
         <h2>Checking:</h2>
+
         <p>${address}</p>
 
- <div class="company">
+        <div class="company">
 
-    <h3>Electricity Distributor</h3>
+            <h3>Electricity Distributor</h3>
 
-<p class="ok">
-⚡ ${distributor}
-</p>
+            <p class="ok">
+                ⚡ ${distributor}
+            </p>
 
-<h3>Power Status</h3>
 
-<p>
-${outage.status}
-</p>
+            <h3>Power Status</h3>
 
-<p>
-${outage.details}
-</p>
+            <p>
+                ${outage.status}
+            </p>
 
-</div>
+            <p>
+                ${outage.details}
+            </p>
+
+        </div>
 
 
         <p>
-        Last checked:
-        ${new Date().toLocaleTimeString()}
+            Last checked:
+            ${new Date().toLocaleTimeString()}
         </p>
 
     `;
