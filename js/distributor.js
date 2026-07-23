@@ -1,7 +1,10 @@
 function findDistributor(address) {
 
+    console.log("Address received:", address);
+
     address = address.toLowerCase();
 
+    console.log("Lowercase:", address);
 
     const endeavourAreas = [
         "penrith",
@@ -22,31 +25,14 @@ function findDistributor(address) {
         "wollongong"
     ];
 
-
-    const ausgridAreas = [
-        "sydney",
-        "newcastle",
-        "central coast",
-        "hornsby",
-        "manly",
-        "parramatta"
-    ];
-
-
     for (const area of endeavourAreas) {
         if (address.includes(area)) {
+            console.log("Matched:", area);
             return "Endeavour Energy";
         }
     }
 
-
-    for (const area of ausgridAreas) {
-        if (address.includes(area)) {
-            return "Ausgrid";
-        }
-    }
-
+    console.log("No Endeavour match");
 
     return "Essential Energy";
-
 }
