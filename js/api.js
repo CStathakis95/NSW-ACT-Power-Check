@@ -1,9 +1,11 @@
 async function getOutage(address) {
 
-    try {
+```
+try {
 
-        const response = await fetch(`${CONFIG.API_URL}/check`, {
-
+    const response = await fetch(
+        `${CONFIG.API_URL}/check`,
+        {
             method: "POST",
 
             headers: {
@@ -13,21 +15,70 @@ async function getOutage(address) {
             body: JSON.stringify({
                 address: address
             })
+        }
+    );
 
-        });
 
-        return await response.json();
+    // ----------------------------------------------
+    // Check HTTP response
+    // ----------------------------------------------
 
-    } catch (error) {
+    if (!response.ok) {
 
-        return {
-
-            status: "Error",
-
-            details: "Unable to contact outage service."
-
-        };
+        throw new Error(
+            `Outage service returned HTTP ${response.status}`
+        );
 
     }
+
+
+    // ----------------------------------------------
+    // Read JSON response
+    // ----------------------------------------------
+
+    const data =
+        await response.json();
+
+
+    console.log(
+        "Cloudflare Worker response:",
+        data
+    );
+
+
+    return data;
+
+
+} catch (error) {
+
+    console.error(
+        "Unable to contact outage service:",
+        error
+    );
+
+
+    return {
+
+        success: false,
+
+        address: address,
+
+        distributor: {
+            name: "Unavailable",
+            status: "Service error"
+        },
+
+        power: {
+            status:
+                "Unable to contact outage service."
+        },
+
+        error:
+            error.message
+
+    };
+
+}
+```
 
 }
