@@ -1,38 +1,29 @@
+/*
+
+* Distributor identification
+*
+* This module will eventually determine whether an address
+* is supplied by:
+*
+* * Ausgrid
+* * Endeavour Energy
+* * Essential Energy
+*
+* We are deliberately NOT using suburb-name guessing here.
+  */
+
 function findDistributor(address) {
 
-    console.log("Address received:", address);
+```
+console.log(
+    "Distributor lookup requested for:",
+    address
+);
 
-    address = address.toLowerCase();
+return {
+    name: "Not yet determined",
+    status: "Distributor boundary lookup not connected"
+};
+```
 
-    console.log("Lowercase:", address);
-
-    const endeavourAreas = [
-        "penrith",
-        "blackett",
-        "st marys",
-        "mount druitt",
-        "doonside",
-        "whalan",
-        "plumpton",
-        "rooty hill",
-        "parramatta",
-        "seven hills",
-        "werrington",
-        "kingswood",
-        "cranebrook",
-        "emu plains",
-        "springwood",
-        "wollongong"
-    ];
-
-    for (const area of endeavourAreas) {
-        if (address.includes(area)) {
-            console.log("Matched:", area);
-            return "Endeavour Energy";
-        }
-    }
-
-    console.log("No Endeavour match");
-
-    return "Essential Energy";
 }
