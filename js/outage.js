@@ -4,7 +4,6 @@
 
 async function checkOutage(distributor, address) {
 
-```
 console.log(
     "Checking outage for:",
     distributor,
@@ -62,7 +61,6 @@ return {
         "The electricity distributor has not yet been identified."
 
 };
-```
 
 }
 
@@ -72,7 +70,6 @@ return {
 
 async function checkAusgrid(address) {
 
-```
 return {
 
     status:
@@ -82,7 +79,6 @@ return {
         "Ausgrid live outage data will be connected here."
 
 };
-```
 
 }
 
@@ -92,7 +88,6 @@ return {
 
 async function checkEndeavour(address) {
 
-```
 return {
 
     status:
@@ -102,7 +97,6 @@ return {
         "Endeavour Energy live outage data will be connected here."
 
 };
-```
 
 }
 
@@ -112,7 +106,6 @@ return {
 
 async function checkEssential(address) {
 
-```
 return {
 
     status:
@@ -122,6 +115,5 @@ return {
         "Essential Energy live outage data will be connected here."
 
 };
-```
 
 }
