@@ -16,11 +16,11 @@ if (address === "") {
 }
 
 
-results.innerHTML = `
+results.innerHTML = 
     <h2>Checking:</h2>
     <p>${address}</p>
     <p>🔎 Contacting outage service...</p>
-`;
+;
 
 
 try {
@@ -60,7 +60,7 @@ try {
         "Status unavailable";
 
 
-    results.innerHTML = `
+    results.innerHTML = 
 
         <h2>Checking:</h2>
 
@@ -94,7 +94,7 @@ try {
 
             ${
                 outage.location
-                ? `
+                ? 
 
                     <h3>
                         Location
@@ -103,16 +103,13 @@ try {
                     <p>
                         ${
                             outage.location.suburb ||
-                            ""
                         }
                         ${
                             outage.location.postcode ||
-                            ""
                         }
                     </p>
 
-                `
-                : ""
+                :
             }
 
         </div>
@@ -123,7 +120,7 @@ try {
             ${new Date().toLocaleTimeString()}
         </p>
 
-    `;
+    ;
 
 
 } catch (error) {
@@ -134,7 +131,7 @@ try {
     );
 
 
-    results.innerHTML = `
+    results.innerHTML = 
 
         <h2>Checking:</h2>
 
@@ -157,7 +154,7 @@ try {
 
         </div>
 
-    `;
+    ;
 
 }
     
