@@ -29,7 +29,6 @@ async function getOutage(address) {
     );
 
     if (!response.ok) {
-
         throw new Error(
             data.error ||
             `Cloudflare returned HTTP ${response.status}`
