@@ -14,7 +14,6 @@
 
 function findDistributor(address) {
 
-```
 console.log(
     "Distributor lookup requested for:",
     address
@@ -24,6 +23,5 @@ return {
     name: "Not yet determined",
     status: "Distributor boundary lookup not connected"
 };
-```
 
 }
