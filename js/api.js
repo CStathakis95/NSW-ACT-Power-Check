@@ -1,4 +1,5 @@
 async function getOutage(address) {
+
     const response = await fetch(
         `${CONFIG.API_URL}/check`,
         {
@@ -12,18 +13,28 @@ async function getOutage(address) {
         }
     );
 
-    if (!response.ok) {
+    let data;
+
+    try {
+        data = await response.json();
+    } catch (error) {
         throw new Error(
             `Cloudflare returned HTTP ${response.status}`
         );
     }
 
-    const data = await response.json();
-
     console.log(
         "Worker response:",
         data
     );
+
+    if (!response.ok) {
+
+        throw new Error(
+            data.error ||
+            `Cloudflare returned HTTP ${response.status}`
+        );
+    }
 
     return data;
 }
