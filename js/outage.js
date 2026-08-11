@@ -4,65 +4,31 @@
 
 async function checkOutage(distributor, address) {
 
-console.log(
-    "Checking outage for:",
-    distributor,
-    address
-);
+    console.log(
+        "Checking outage for:",
+        distributor,
+        address
+    );
 
+    if (distributor === "Ausgrid") {
+        return await checkAusgrid(address);
+    }
 
-// --------------------------------------------------
-// Ausgrid
-// --------------------------------------------------
+    if (distributor === "Endeavour Energy") {
+        return await checkEndeavour(address);
+    }
 
-if (distributor === "Ausgrid") {
+    if (distributor === "Essential Energy") {
+        return await checkEssential(address);
+    }
 
-    return await checkAusgrid(address);
-
+    return {
+        status: "Distributor not determined",
+        details:
+            "The electricity distributor has not yet been identified."
+    };
 }
 
-
-// --------------------------------------------------
-// Endeavour Energy
-// --------------------------------------------------
-
-if (
-    distributor === "Endeavour Energy"
-) {
-
-    return await checkEndeavour(address);
-
-}
-
-
-// --------------------------------------------------
-// Essential Energy
-// --------------------------------------------------
-
-if (
-    distributor === "Essential Energy"
-) {
-
-    return await checkEssential(address);
-
-}
-
-
-// --------------------------------------------------
-// Unknown distributor
-// --------------------------------------------------
-
-return {
-
-    status:
-        "Distributor not determined",
-
-    details:
-        "The electricity distributor has not yet been identified."
-
-};
-
-}
 
 // ======================================================
 // AUSGRID
@@ -70,17 +36,15 @@ return {
 
 async function checkAusgrid(address) {
 
-return {
+    return {
+        status:
+            "Ausgrid outage lookup not connected",
 
-    status:
-        "Ausgrid outage lookup not connected",
-
-    details:
-        "Ausgrid live outage data will be connected here."
-
-};
-
+        details:
+            "Ausgrid live outage data will be connected here."
+    };
 }
+
 
 // ======================================================
 // ENDEAVOUR ENERGY
@@ -88,17 +52,15 @@ return {
 
 async function checkEndeavour(address) {
 
-return {
+    return {
+        status:
+            "Endeavour Energy outage lookup not connected",
 
-    status:
-        "Endeavour Energy outage lookup not connected",
-
-    details:
-        "Endeavour Energy live outage data will be connected here."
-
-};
-
+        details:
+            "Endeavour Energy live outage data will be connected here."
+    };
 }
+
 
 // ======================================================
 // ESSENTIAL ENERGY
@@ -106,14 +68,11 @@ return {
 
 async function checkEssential(address) {
 
-return {
+    return {
+        status:
+            "Essential Energy outage lookup not connected",
 
-    status:
-        "Essential Energy outage lookup not connected",
-
-    details:
-        "Essential Energy live outage data will be connected here."
-
-};
-
+        details:
+            "Essential Energy live outage data will be connected here."
+    };
 }
